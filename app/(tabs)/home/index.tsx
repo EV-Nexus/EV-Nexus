@@ -1,9 +1,10 @@
 import { Image, ScrollView, TouchableOpacity, useColorScheme } from 'react-native';
+import { useNavigation } from 'expo-router';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { Ionicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Text, useThemeColor, View } from '@/components/Themed';
-import { useNavigation } from 'expo-router';
+import Footer from '@/components/Footer'; 
 
 
 
@@ -92,6 +93,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             className="bg-emerald-500 py-3 rounded-lg items-center justify-center"
             activeOpacity={0.8}
+            onPress={() => navigation.navigate("lease" as never)}
           >
             <Text className="text-white font-semibold">
               Lease a Bike Today
@@ -156,6 +158,27 @@ export default function HomeScreen() {
           ))}
         </View>
       </View>
+
+      <View style={{ backgroundColor: '#0EA5E9' }} className='mt-4 p-4 rounded-2xl' >
+          <Text className="text-xl font-bold mb-2" style={{ color: 'white', textAlign: 'center'}}>
+            Ready to go Electric?
+          </Text>
+          <Text className="text-sm mb-2 text-white" style={{ color: 'white', textAlign: 'center', paddingHorizontal: 16 }}>
+            Start your leasing process today and enjoy the benefits of electric rides.
+          </Text>
+          <TouchableOpacity
+            className="bg-white py-3 rounded-lg items-center justify-center"
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("lease" as never)}
+          >
+            <Text style={{ color: '#0EA5E9'}}>
+              Start Leasing Process
+            </Text>
+          </TouchableOpacity>
+      </View>
+
+      <Footer />
+        
     </ScrollView>
   );
 }
