@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { Text, View } from '@/components/Themed';
+import { Text, useThemeColor, View } from '@/components/Themed';
 
 const Footer = () => (
-    <View style={styles.footer}>
+
+    <View style={[styles.footer, { backgroundColor: useThemeColor({ light: '#fff', dark: '#000' }, 'background') }]}>
         <View style={styles.container}>
             <View style={styles.logoContainer}>
                 <View style={styles.logoBox}>
@@ -27,8 +28,6 @@ const styles = StyleSheet.create({
     footer: {
         paddingVertical: 24,
         backgroundColor: '#fff',
-        borderTopWidth: 1,
-        borderTopColor: '#ccc',
         marginTop: 'auto',
     },
     container: {
