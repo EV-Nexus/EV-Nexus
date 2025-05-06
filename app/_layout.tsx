@@ -4,10 +4,10 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import "../style/global.css";
 import { useColorScheme } from 'react-native';
+import 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -23,6 +23,8 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const colorScheme = useColorScheme();
+
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -43,7 +45,11 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: colorScheme === 'dark' ? '#000' : '#fff' }} edges={['top', 'left', 'right']}>
+      <RootLayoutNav />
+    </SafeAreaView>
+  );
 }
 
 function RootLayoutNav() {
@@ -53,7 +59,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="notifications" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

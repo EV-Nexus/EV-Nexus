@@ -1,54 +1,78 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-
-import Colors from '@/constants/Colors';
-import { useColorScheme } from 'react-native';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof Ionicons>['name'];
-  color: string;
-}) {
-  return <Ionicons size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { StyleSheet, useColorScheme } from 'react-native';
+import { Battery, Bike, Home, User2, Wrench } from 'lucide-react-native';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarStyle: styles.tabBar,
+        tabBarActiveTintColor: '#059669',
+        tabBarInactiveTintColor: '#71717A',
+        tabBarLabelStyle: styles.tabLabel,
         headerShown: false,
       }}>
       <Tabs.Screen
         name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color, size }) => (
+            <Home size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="lease"
+        name="marketplace"
         options={{
           title: 'Lease',
-          tabBarIcon: ({ color }) => <TabBarIcon name="car" color={color} />,
+          tabBarIcon: ({ color, size }) => (
+            <Bike size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="battery"
+        name="battery-swap"
         options={{
-          title: 'Battery',
-          tabBarIcon: ({ color }) => <TabBarIcon name="battery-charging" color={color} />,
+          title: 'Swap',
+          tabBarIcon: ({ color, size }) => (
+            <Battery size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="repairs"
         options={{
           title: 'Repairs',
-          tabBarIcon: ({ color }) => <TabBarIcon name="construct" color={color} />,
+          tabBarIcon: ({ color, size }) => (
+            <Wrench size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <User2 size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBar: {
+    height: 80,
+    paddingTop: 6,
+    paddingBottom: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#F4F4F5',
+  },
+  tabLabel: {
+    fontSize: 12,
+    fontWeight: '500',
+    marginTop: 2,
+  },
+});
