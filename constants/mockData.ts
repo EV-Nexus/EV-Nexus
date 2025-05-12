@@ -152,7 +152,7 @@ export const MOCK_BIKES = [
       rating: 4.8,
       distance: 2.3,
       services: ['Motor Repair', 'Battery Service', 'Electronics'],
-      image: 'https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.unsplash.com/photo-1631972241361-330c704b90f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
       id: '2',
@@ -160,7 +160,7 @@ export const MOCK_BIKES = [
       rating: 4.5,
       distance: 3.7,
       services: ['Tire Service', 'Brake Repair', 'Frame Work'],
-      image: 'https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.unsplash.com/photo-1631972241361-330c704b90f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
       id: '3',
@@ -168,7 +168,7 @@ export const MOCK_BIKES = [
       rating: 4.9,
       distance: 1.5,
       services: ['Battery Replacement', 'Electrical Systems', 'General Service'],
-      image: 'https://images.pexels.com/photos/4195342/pexels-photo-4195342.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.unsplash.com/photo-1631972241361-330c704b90f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
   ];
   
