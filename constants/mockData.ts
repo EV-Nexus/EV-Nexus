@@ -175,7 +175,7 @@ export const MOCK_BIKES = [
   export const MOCK_USER = {
     id: '1',
     name: 'Eli Keli',
-    phone: '+254 712 345 678',
+    phone: '+254 742 560540',
     currentBike: '1', // References a bike ID
     paymentDue: 450,
     nextPaymentDate: '2025-06-15',
