@@ -3,6 +3,7 @@ import { Bell, ChevronRight, HelpCircle, Languages, LogOut, Shield, User, Wallet
 
 import { Text, useThemeColor, View } from '@/components/Themed';
 import { MOCK_BIKES, MOCK_USER } from '@/constants/mockData';
+import { router } from 'expo-router';
 
 export default function ProfileScreen() {
   const colorScheme = useColorScheme();
@@ -93,7 +94,7 @@ export default function ProfileScreen() {
           <Text style={styles.settingsSectionTitle}>Settings</Text>
 
           <View style={[styles.card, { backgroundColor: cardBgColor }]}>
-            <TouchableOpacity style={styles.settingsItem}>
+            <TouchableOpacity style={styles.settingsItem} onPress={() => router.push('/notifications')}>
               <View style={styles.settingsItemLeft}>
                 <View style={[styles.settingsIconContainer, { backgroundColor: '#D1FAE5' }]}>
                   <Bell size={20} color='#059669' />
