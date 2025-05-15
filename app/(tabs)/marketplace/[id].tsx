@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, Image, TouchableOpacity, Alert, useColorScheme } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { MOCK_BIKES } from '@/constants/mockData';
 import { Button } from '@/components/ui/Button';
 import { BIKE_TYPES } from '@/constants/bikeTypes';
@@ -11,6 +11,7 @@ import { Text, useThemeColor, View } from '@/components/Themed';
 
 export default function BikeDetailScreen() {
   const colorScheme = useColorScheme();
+  const router = useRouter();
   const { id } = useLocalSearchParams();
   const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -39,7 +40,10 @@ export default function BikeDetailScreen() {
           text: "Cancel",
           style: "cancel"
         },
-        { text: "Continue", onPress: () => console.log("Lease process initiated") }
+        { text: "Continue", onPress: () => router.replace({
+          pathname: '/(lease)/details',
+          params: { id }
+        }) }
       ]
     );
   };
