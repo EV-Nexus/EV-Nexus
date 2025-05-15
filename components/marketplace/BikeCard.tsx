@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 
 import { Text, useThemeColor, View } from '@/components/Themed';
-import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { BIKE_TYPES } from '@/constants/bikeTypes';
 
@@ -19,59 +18,62 @@ interface BikeCardProps {
 }
 
 export function BikeCard({ id, name, image, brand, type, price, range, availability }: BikeCardProps) {
-  const availabilityVariant = 
-    availability === 'available' ? 'success' : 
-    availability === 'limited' ? 'warning' : 'error';
+  const router = useRouter();
 
-  const availabilityText = 
-    availability === 'available' ? 'Available Now' : 
-    availability === 'limited' ? 'Limited Stock' : 'Out of Stock';
+  const availabilityVariant =
+    availability === 'available' ? 'success' :
+      availability === 'limited' ? 'warning' : 'error';
 
-    const cardBgColor = useThemeColor({
-      light: '#fff',
-      dark: '#333',
-    }, 'background');
+  const availabilityText =
+    availability === 'available' ? 'Available Now' :
+      availability === 'limited' ? 'Limited Stock' : 'Out of Stock';
+
+  const cardBgColor = useThemeColor({
+    light: '#fff',
+    dark: '#333',
+  }, 'background');
 
   return (
-    <Link href={`/marketplace/${id}`} asChild>
-      <TouchableOpacity activeOpacity={0.8}>
-        <View style={[styles.card, { backgroundColor: cardBgColor }]}>
-          <View style={styles.imageContainer}>
-            <Image source={{ uri: image }} style={styles.image} />
-            <Badge 
-              variant={availabilityVariant} 
-              style={styles.availabilityBadge}
-            >
-              {availabilityText}
-            </Badge>
+    <TouchableOpacity
+      onPress={() => router.replace(`/marketplace/${id}`)}
+      activeOpacity={0.8}
+    >
+      <View style={[styles.card, { backgroundColor: cardBgColor }]}>
+        <View style={styles.imageContainer}>
+          <Image source={{ uri: image }} style={styles.image} />
+          <Badge
+            variant={availabilityVariant}
+            style={styles.availabilityBadge}
+          >
+            {availabilityText}
+          </Badge>
+        </View>
+
+        <View style={styles.content}>
+          <View style={styles.header}>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.brand}>{brand}</Text>
           </View>
-          
-          <View style={styles.content}>
-            <View style={styles.header}>
-              <Text style={styles.name}>{name}</Text>
-              <Text style={styles.brand}>{brand}</Text>
+
+          <View style={styles.details}>
+            <View style={styles.detail}>
+              <Text style={styles.detailLabel}>Type</Text>
+              <Text style={styles.detailValue}>{BIKE_TYPES[type]}</Text>
             </View>
-            
-            <View style={styles.details}>
-              <View style={styles.detail}>
-                <Text style={styles.detailLabel}>Type</Text>
-                <Text style={styles.detailValue}>{BIKE_TYPES[type]}</Text>
-              </View>
-              
-              <View style={styles.detail}>
-                <Text style={styles.detailLabel}>Daily</Text>
-                <Text style={styles.detailValue}>KSh {price}/day</Text>
-              </View>
-              
-              <View style={styles.detail}>
-                <Text style={styles.detailLabel}>Range</Text>
-                <Text style={styles.detailValue}>{range} km</Text>
-              </View>
+
+            <View style={styles.detail}>
+              <Text style={styles.detailLabel}>Daily</Text>
+              <Text style={styles.detailValue}>KSh {price}/day</Text>
+            </View>
+
+            <View style={styles.detail}>
+              <Text style={styles.detailLabel}>Range</Text>
+              <Text style={styles.detailValue}>{range} km</Text>
             </View>
           </View>
         </View>
-      </TouchableOpacity>
-    </Link>
+      </View>
+    </TouchableOpacity>
   );
 }
 
