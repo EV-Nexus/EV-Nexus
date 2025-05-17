@@ -24,6 +24,18 @@ export default function BatterySwapLayout() {
           headerLeft: () => <Ionicons name="battery-charging" size={28} color={colorScheme === 'dark' ? '#fff' : '#18181B'} />,
         }}
       />
+      <Stack.Screen
+        name="[id]"
+        options={{
+          headerTitle: 'Station Details',
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: '600',
+            color: colorScheme === 'dark' ? '#fff' : '#18181B',
+          },
+          headerLeft: () => <Ionicons name="battery-charging" size={28} color={colorScheme === 'dark' ? '#fff' : '#18181B'} />,
+        }}
+      />
     </Stack>
   );
 }
