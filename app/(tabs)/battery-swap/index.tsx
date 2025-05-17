@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Platform, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
 import { Text, useThemeColor, View } from '@/components/Themed';
 import { MOCK_SWAP_STATIONS } from '@/constants/mockData';
@@ -45,18 +45,14 @@ const getMapComponents = (): MapComponents => {
 const { MapView, Marker, PROVIDER_GOOGLE } = getMapComponents();
 
 export default function BatterySwapScreen() {
+  const router = useRouter();
+  
   const [view, setView] = useState<'list' | 'map'>('list');
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [userLocation, setUserLocation] = useState({
     latitude: -1.286389, // Example coordinates for Nairobi
     longitude: 36.817223, 
   });
-
-  // Theme colors
-  const viewToggleBgColor = useThemeColor({
-    light: '#F3F4F6',
-    dark: '#374151',
-  }, 'background');
   
   const handleStationPress = (id: string) => {
     setSelectedStation(id);
@@ -70,13 +66,28 @@ export default function BatterySwapScreen() {
         // Would normally animate to this region
         console.log(`Centering map on station: ${station.name}`);
       }
+    } else {
+      // If already in map view, or after switching to map view, navigate to station details
+      // which is the first step in the battery swap flow
+      router.push({
+        pathname: '/(tabs)/battery-swap/[id]',
+        params: { id }
+      });
     }
+  };
+
+  // Add a function to navigate directly to station details from the map overlay
+  const handleViewStationDetails = (id: string) => {
+    router.push({
+      pathname: '/(tabs)/battery-swap/[id]',
+      params: { id }
+    })
   };
 
   return (
     <View style={styles.container}>
       {/* View Toggle */}
-      <View style={[styles.viewToggle, { backgroundColor: viewToggleBgColor }]}>
+      <View style={styles.viewToggle}>
         <TouchableOpacity
           style={[styles.toggleButton, view === 'list' && styles.toggleButtonActive]}
           onPress={() => setView('list')}
@@ -97,7 +108,6 @@ export default function BatterySwapScreen() {
       {/* List View */}
       {view === 'list' && (
         <ScrollView 
-          style={styles.stationList}
           contentContainerStyle={styles.stationListContent}
           showsVerticalScrollIndicator={false}
         >
@@ -179,7 +189,7 @@ export default function BatterySwapScreen() {
                     distance={station.distance}
                     batteryAvailable={station.batteryAvailable}
                     openUntil={station.openUntil}
-                    onPress={() => {}}
+                    onPress={() => handleViewStationDetails(station.id)}
                   />
                 ))}
             </View>
@@ -216,12 +226,10 @@ const styles = StyleSheet.create({
   toggleText: {
     fontSize: 14,
     marginLeft: 8,
+    color: '#3F3F46',
   },
   toggleTextActive: {
     color: '#FFFFFF',
-  },
-  stationList: {
-    flex: 1,
   },
   stationListContent: {
     padding: 16,
@@ -236,7 +244,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFillObject, // Fill the entire screen
   },
   webMapPlaceholder: {
     flex: 1,
@@ -245,9 +253,9 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   webMapText: {
-    // fontFamily: FONTS.medium,
+    fontWeight: '500',
     fontSize: 16,
-    // color: '#3F3F46',
+    color: '#3F3F46',
     textAlign: 'center',
     marginTop: 16,
   },
@@ -256,5 +264,6 @@ const styles = StyleSheet.create({
     bottom: 16,
     left: 16,
     right: 16,
+    backgroundColor: 'transparent',
   },
 });
