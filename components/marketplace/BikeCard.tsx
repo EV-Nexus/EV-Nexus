@@ -35,7 +35,7 @@ export function BikeCard({ id, name, image, brand, type, price, range, availabil
 
   return (
     <TouchableOpacity
-      onPress={() => router.replace(`/marketplace/${id}`)}
+      onPress={() => router.push(`/marketplace/${id}`)}
       activeOpacity={0.8}
     >
       <View style={[styles.card, { backgroundColor: cardBgColor }]}>

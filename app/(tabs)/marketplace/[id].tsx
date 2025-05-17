@@ -40,7 +40,7 @@ export default function BikeDetailScreen() {
           text: "Cancel",
           style: "cancel"
         },
-        { text: "Continue", onPress: () => router.replace({
+        { text: "Continue", onPress: () => router.push({
           pathname: '/(lease)/details',
           params: { id }
         }) }
