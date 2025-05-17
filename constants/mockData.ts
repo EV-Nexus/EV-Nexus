@@ -102,6 +102,37 @@ export const MOCK_SWAP_STATIONS = [
     batteryAvailable: 8,
     openUntil: '22:00',
     address: 'Kenyatta Avenue, Nairobi',
+    phone: '+254 700 123456',
+    chargingPoints: 6,
+    rating: 4.7,
+    facilities: [
+      { name: 'Waiting Area' },
+      { name: 'Convenience Store' },
+      { name: 'WiFi' },
+      { name: 'Restrooms' },
+      { name: 'ATM' },
+      { name: 'Cafe' }
+    ],
+    reviews: [
+      {
+        name: 'John M.',
+        rating: 5,
+        comment: 'Very quick service, staff was helpful in getting my battery swapped.',
+        date: 'June 12, 2025'
+      },
+      {
+        name: 'Sarah K.',
+        rating: 4.5,
+        comment: 'Clean facility with good amenities while waiting. Battery was fully charged.',
+        date: 'June 8, 2025'
+      },
+      {
+        name: 'David O.',
+        rating: 4.8,
+        comment: 'Always reliable, never had to wait more than 5 minutes for a swap.',
+        date: 'June 5, 2025'
+      }
+    ]
   },
   {
     id: '2',
@@ -112,6 +143,28 @@ export const MOCK_SWAP_STATIONS = [
     batteryAvailable: 3,
     openUntil: '20:00',
     address: 'Moi Avenue, Nairobi',
+    phone: '+254 711 234567',
+    chargingPoints: 4,
+    rating: 4.2,
+    facilities: [
+      { name: 'Waiting Area' },
+      { name: 'WiFi' },
+      { name: 'Restrooms' }
+    ],
+    reviews: [
+      {
+        name: 'Michael W.',
+        rating: 4,
+        comment: 'Good location but sometimes crowded during peak hours.',
+        date: 'June 10, 2025'
+      },
+      {
+        name: 'Jane L.',
+        rating: 4.5,
+        comment: 'Staff is friendly and process is quick.',
+        date: 'June 3, 2025'
+      }
+    ]
   },
   {
     id: '3',
@@ -122,6 +175,35 @@ export const MOCK_SWAP_STATIONS = [
     batteryAvailable: 0,
     openUntil: '23:00',
     address: 'Tom Mboya Street, Nairobi',
+    phone: '+254 722 345678',
+    chargingPoints: 8,
+    rating: 3.9,
+    facilities: [
+      { name: 'Waiting Area' },
+      { name: 'Convenience Store' },
+      { name: 'Bike Service' },
+      { name: 'WiFi' }
+    ],
+    reviews: [
+      {
+        name: 'Robert N.',
+        rating: 3.5,
+        comment: 'Often out of batteries in the evening. Good facility otherwise.',
+        date: 'June 9, 2025'
+      },
+      {
+        name: 'Evelyn T.',
+        rating: 4,
+        comment: 'Appreciate the late hours. Saved me many times.',
+        date: 'June 1, 2025'
+      },
+      {
+        name: 'George K.',
+        rating: 4.2,
+        comment: 'Great bike service while waiting for battery swap.',
+        date: 'May 28, 2025'
+      }
+    ]
   },
   {
     id: '4',
@@ -132,6 +214,30 @@ export const MOCK_SWAP_STATIONS = [
     batteryAvailable: 12,
     openUntil: '21:00',
     address: 'Ngara Road, Nairobi',
+    phone: '+254 733 456789',
+    chargingPoints: 10,
+    rating: 4.8,
+    facilities: [
+      { name: 'Waiting Area' },
+      { name: 'Cafe' },
+      { name: 'WiFi' },
+      { name: 'Restrooms' },
+      { name: 'Bike Service' }
+    ],
+    reviews: [
+      {
+        name: 'Mary W.',
+        rating: 5,
+        comment: 'Best swap station in Nairobi! Always has batteries and great cafe.',
+        date: 'June 11, 2025'
+      },
+      {
+        name: 'Paul J.',
+        rating: 4.7,
+        comment: 'Excellent service and facility. Love the coffee while I wait.',
+        date: 'June 6, 2025'
+      }
+    ]
   },
   {
     id: '5',
@@ -142,6 +248,27 @@ export const MOCK_SWAP_STATIONS = [
     batteryAvailable: 2,
     openUntil: '19:00',
     address: 'Haile Selassie Avenue, Nairobi',
+    phone: '+254 744 567890',
+    chargingPoints: 3,
+    rating: 3.6,
+    facilities: [
+      { name: 'Waiting Area' },
+      { name: 'Convenience Store' }
+    ],
+    reviews: [
+      {
+        name: 'Daniel M.',
+        rating: 3.5,
+        comment: 'Small facility but gets the job done. Limited hours though.',
+        date: 'June 7, 2025'
+      },
+      {
+        name: 'Lucy K.',
+        rating: 3.8,
+        comment: 'Convenient location but could use more charging points.',
+        date: 'June 2, 2025'
+      }
+    ]
   },
 ];
 
