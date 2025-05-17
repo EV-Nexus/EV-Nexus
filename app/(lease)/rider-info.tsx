@@ -71,12 +71,12 @@ export default function RiderInfoScreen() {
   };
 
   const handleContinue = () => {
-    // if (validateForm()) {
-    //   router.push({
-    //     pathname: '/(lease)/confirm',
-    //     params: { ...formData, id, duration }
-    //   });
-    // }
+    if (validateForm()) {
+      router.push({
+        pathname: '/(lease)/confirm',
+        params: { ...formData, id, duration }
+      });
+    }
     router.push({
       pathname: '/(lease)/confirm',
       params: { ...formData, id, duration }

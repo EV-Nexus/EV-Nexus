@@ -14,7 +14,7 @@ export default function LeaseLayout() {
             <Stack.Screen
                 name="details"
                 options={{
-                    headerTitle: 'Lease Details',
+                    headerTitle: '1. Lease Details',
                     headerTitleStyle: {
                         color: colorScheme === 'dark' ? '#fff' : '#18181B',
                     },
@@ -23,7 +23,7 @@ export default function LeaseLayout() {
             <Stack.Screen
                 name="rider-info"
                 options={{
-                    title: 'Rider Information',
+                    title: '2. Rider Information',
                     headerTitleStyle: {
                         color: colorScheme === 'dark' ? '#fff' : '#18181B',
                     },
@@ -34,7 +34,7 @@ export default function LeaseLayout() {
             <Stack.Screen
                 name="confirm"
                 options={{
-                    title: 'Confirm Lease',
+                    title: '3. Confirm Lease Details',
                     headerTitleStyle: {
                         color: colorScheme === 'dark' ? '#fff' : '#18181B',
                     },

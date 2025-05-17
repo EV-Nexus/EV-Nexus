@@ -44,8 +44,6 @@ export default function ConfirmLeaseScreen() {
       </View>
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
 
-      <Text style={styles.title}>Confirm Lease Details</Text>
-
       <View style={[styles.card, { backgroundColor: cardBgColor }]}>
         <Image source={{ uri: bike.image }} style={styles.bikeImage} />
         <View style={styles.bikeInfo}>
@@ -159,11 +157,6 @@ const styles = StyleSheet.create({
   progressStepActive: {
     backgroundColor: '#10B981',
   },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 24,
-    padding: 16,
-  },
   card: {
     borderRadius: 10,
     padding: 16,
@@ -217,15 +210,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   detailLabel: {
-    // fontFamily: FONTS.regular,
     fontSize: 12,
-    // color: COLORS.gray[600],
     marginBottom: 2,
   },
   detailValue: {
-    // fontFamily: FONTS.medium,
+    fontWeight: '500',
     fontSize: 16,
-    // color: COLORS.gray[900],
   },
   leaseCard: {
     margin: 16,
