@@ -24,6 +24,18 @@ export default function RepairsLayout() {
           headerLeft: () => <Ionicons name="construct-outline" size={28} color={colorScheme === 'dark' ? '#fff' : '#18181B'} />,
         }}
       />
+      <Stack.Screen
+        name="[id]"
+        options={{
+          headerTitle: 'Garage Details',
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: '600',
+            color: colorScheme === 'dark' ? '#fff' : '#18181B',
+          },
+          headerLeft: () => <Ionicons name="construct-outline" size={28} color={colorScheme === 'dark' ? '#fff' : '#18181B'} />,
+        }}
+      />
     </Stack>
   );
 }
